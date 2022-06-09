@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>MHS Senior Map</title>
+        <meta name="description" content="See where MHS seniors will be after graduation!">
+        <meta name="viewport" content="initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" href="css/popup.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/modal.css">
+        <link rel="stylesheet" href="css/statistics.css">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    </head>
+
+    <body>
+        <div id="map" class="loading"></div>
+        <div id="options">
+            <label for="option-year">Year: </label>
+            <select id="option-year">
+                <!-- Options populated by JS -->
+            </select>
+            <input type="checkbox" id="options-toggle">
+            <img id="options-toggle-image" src="img/gear.svg">
+            <div id="options-dropdown">
+                <div class="option">
+                    <label for="option-pan">Pan To Markers: </label>
+                    <input id="option-pan" type="checkbox" checked>
+                </div>
+                <div class="option">
+                    <label for="option-precedence">Marker Precedence: </label>
+                    <select id="option-precedence">
+                        <option>Top</option>
+                        <option selected>Bottom</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="branding">
+            <img id="logo" src="img/gm.svg">
+            <p><a id="submit-destination" target="_blank" rel="noopener" href="https://forms.gle/yyyhf76aV2y7jsw36">Submit your <span id="submit-destination-year">2022</span> destination</a></p>
+            <p class="branding-info">Senior project by <a target="_blank" rel="noopener" href="https://erikboesen.com">Erik Boesen</a> '19</p>
+            <p class="branding-info">Maintained by MHS <a href="https://apc-mhs.com">A.P.C.</a></p>
+        </div>
+        <div id="statistics">
+            <svg viewBox="0 0 24 24" id="statistics-button">
+                <use href="img/left_chevron.svg#icon" style="fill: var(--color);" />
+            </svg>
+            <h3 id="statistics-header">
+                Class of <span id="statistics-header-class" class="stat"></span> stats
+            </h3>
+            <ul id="statistics-stats">
+                <li><span id="stats-students" class="stat"></span> students displayed</li>
+                <li class="processing-required"><span id="stats-destinations" class="stat"></span> total destinations</li>
+                <li class="processing-required"><span id="stats-states" class="stat"></span> different states</li>
+                <li class="processing-required"><span id="stats-countries" class="stat"></span> different countries</li>
+                <li class="processing-incomplete"><em>Other stats are still being processed</em></li>
+            </ul>
+        </div>
+    </body>
+    <script src="js/popup.js"></script>
+    <script src="js/statistics.js"></script>
+    <script src="js/scripts.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2DiuOwQf-LdnOSNGW-mhlZt024RO0eL8&callback=initMap" async defer></script>
+</html>

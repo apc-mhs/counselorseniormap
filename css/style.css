@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body, #map { height: 100%; }
+body {
+    background-color: #333;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+select {
+    background-color: #222;
+    color: white;
+    font-size: 15px;
+}
+button, a.button {
+    display: inline-block;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 30px;
+    background-color: rgba(235, 35, 45, 0.5);
+    padding: 5px 10px;
+    transition: background-color 250ms ease;
+    cursor: pointer;
+    color: white;
+    font-family: inherit;
+    vertical-align: middle;
+    border: none;
+    line-height: 1;
+    font-size: 20px;
+    text-decoration: none;
+}
+button:hover, a.button:hover {
+    background-color: rgba(235, 35, 45, 0.8);
+}
+button:active, a.button:active {
+    background-color: rgba(189, 29, 37, 0.8);
+}
+/* Google stuff */
+.gmnoscreen, .gmnoprint a, .gm-style-cc,
+div a[rel="noopener"] img {
+    display: none !important;
+}
+#map {
+    transition: filter ease 0.75s;
+}
+#branding {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    color: white;
+    width: 140px;
+    background: #222;
+}
+#branding a {
+    color: inherit;
+}
+#logo {
+    width: 100%;
+}
+#options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    color: white;
+    width: 200px;
+    height: auto;
+    background: #222;
+    z-index: 5;
+}
+#options label {
+    margin-right: 5px;
+}
+#options select {
+    border: solid 1px #555;
+    padding: 3px;
+    border-radius: 5px;
+}
+#options input[type="checkbox"] {
+    vertical-align: baseline;
+}
+.loading {
+    filter: blur(1.5rem);
+}
+#options #options-toggle, #options #options-toggle-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+#options #options-toggle {
+    opacity: 0;
+}
+#options #options-toggle:checked + #options-toggle-image {
+    transform: rotate(180deg);
+}
+#options #options-toggle-image {
+    pointer-events: none;
+    transition: transform 250ms ease;
+}
+#options-dropdown {
+    position: absolute;
+    background-color: #222;
+    padding: 0 10px 10px;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: transform 250ms ease;
+    transform-origin: center top 0;
+    pointer-events: none;
+}
+#options-dropdown .option {
+    margin-bottom: 10px;
+}
+#options #options-toggle:checked ~ #options-dropdown {
+    pointer-events: all;
+    opacity: 1;
+    transform: scaleY(1);
+}
+#options #options-dropdown select {
+    margin-top: 5px;
+}
+@media (max-width: 950px) {
+    .branding-info {
+        display: none;
+    }
+    #branding {
+        width: 100px;
+        font-size: 13px;
+    }
+}
